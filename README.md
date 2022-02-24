@@ -3,6 +3,7 @@
 Table of Contents
 =======================
 
+* [What does this branch change](#what-does-this-branch-change)
 * [What is openpilot?](#what-is-openpilot)
 * [Running in a car](#running-in-a-car)
 * [Running on PC](#running-on-pc)
@@ -13,6 +14,23 @@ Table of Contents
 * [Licensing](#licensing)
 
 ---
+
+What does this branch change?
+------
+
+https://github.com/ErichMoraga/openpilot/commits/813
+
+* In a nutshell...
+* Fix flaky EV detection for Toyotas
+* Reverting a commit for HKG folk...
+* Improved SDSU/C-SDSU compatibility
+* Increase print_level from warning to info
+* Restored 085 FPv1
+* SnG hack
+* Eased up Internet requirement
+* Stop charging after 3 hrs
+* Circumvented custom fork warning
+
 
 What is openpilot?
 ------
