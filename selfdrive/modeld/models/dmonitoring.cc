@@ -180,22 +180,22 @@ DMonitoringResult dmonitoring_eval_frame(DMonitoringModelState* s, void* stream_
     ret.face_position_meta[i] = softplus(s->output[9 + i]);
   }
   for (int i = 0; i < 4; ++i) {
-    ret.ready_prob[i] = sigmoid(s->output[39 + i]);
+    ret.ready_prob[i] = s->output[39 + i];
   }
   for (int i = 0; i < 2; ++i) {
-    ret.not_ready_prob[i] = sigmoid(s->output[43 + i]);
+    ret.not_ready_prob[i] = s->output[43 + i];
   }
-  ret.face_prob = sigmoid(s->output[12]);
-  ret.left_eye_prob = sigmoid(s->output[21]);
-  ret.right_eye_prob = sigmoid(s->output[30]);
-  ret.left_blink_prob = sigmoid(s->output[31]);
-  ret.right_blink_prob = sigmoid(s->output[32]);
-  ret.sg_prob = sigmoid(s->output[33]);
-  ret.poor_vision = sigmoid(s->output[34]);
-  ret.partial_face = sigmoid(s->output[35]);
-  ret.distracted_pose = sigmoid(s->output[36]);
-  ret.distracted_eyes = sigmoid(s->output[37]);
-  ret.occluded_prob = sigmoid(s->output[38]);
+  ret.face_prob = s->output[12];
+  ret.left_eye_prob = s->output[21];
+  ret.right_eye_prob = s->output[30];
+  ret.left_blink_prob = s->output[31];
+  ret.right_blink_prob = s->output[32];
+  ret.sg_prob = s->output[33];
+  ret.poor_vision = s->output[34];
+  ret.partial_face = s->output[35];
+  ret.distracted_pose = s->output[36];
+  ret.distracted_eyes = s->output[37];
+  ret.occluded_prob = s->output[38];
   ret.dsp_execution_time = (t2 - t1) / 1000.;
   return ret;
 }
