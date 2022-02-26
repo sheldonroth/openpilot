@@ -184,6 +184,9 @@ function launch {
   # write tmux scrollback to a file
   tmux capture-pane -pq -S-1000 > /tmp/launch_log
 
+  # clear DTCs
+  selfdrive/debug/clear_dtc.py || true
+
   # start manager
   cd selfdrive/manager
   ./build.py && ./manager.py
