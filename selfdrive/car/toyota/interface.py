@@ -153,7 +153,7 @@ class CarInterface(CarInterfaceBase):
       ret.steerRatio = 13.3
       tire_stiffness_factor = 0.444
       ret.mass = 3736.8 * CV.LB_TO_KG + STD_CARGO_KG
-      set_lat_tune(ret.lateralTuning, LatTunes.PID_L)
+      set_lat_tune(ret.lateralTuning, LatTunes.TORQUE, MAX_TORQUE=2.7, FRICTION=0.08)
 
     elif candidate == CAR.LEXUS_CTH:
       stop_and_go = True
