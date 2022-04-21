@@ -148,7 +148,7 @@ class CarInterface(CarInterfaceBase):
       ret.mass = 4590. * CV.LB_TO_KG + STD_CARGO_KG
       set_lat_tune(ret.lateralTuning, LatTunes.PID_J)
 
-    elif candidate in (CAR.LEXUS_IS, CAR.LEXUS_RC):
+    elif candidate in (CAR.LEXUS_IS, CAR.LEXUS_RC, CAR.LEXUS_RC_RETRO):
       ret.wheelbase = 2.79908
       ret.steerRatio = 13.3
       tire_stiffness_factor = 0.444
