@@ -177,7 +177,7 @@ class CarState(CarStateBase):
       signals.append(("GAS_PEDAL", "GAS_PEDAL"))
       checks.append(("GAS_PEDAL", 33))
 
-    if CP.carFingerprint in (CAR.LEXUS_IS, CAR.LEXUS_RC):
+    if CP.carFingerprint in (CAR.LEXUS_IS, CAR.LEXUS_RC, CAR.LEXUS_RC_RETRO):
       signals.append(("MAIN_ON", "DSU_CRUISE"))
       signals.append(("SET_SPEED", "DSU_CRUISE"))
       checks.append(("DSU_CRUISE", 5))
