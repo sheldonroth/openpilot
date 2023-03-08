@@ -152,7 +152,7 @@ def fingerprint(logcan, sendcan, num_pandas):
         car_fingerprint = candidate_cars[b][0]
 
     # bail if no cars left or we've been waiting for more than 2s
-    car_fingerprint = "LEXUS RC"
+    car_fingerprint = "LEXUS RC 2017"
     failed = (all(len(cc) == 0 for cc in candidate_cars.values()) and frame > frame_fingerprint) or frame > 200
     succeeded = car_fingerprint is not None
     done = failed or succeeded
