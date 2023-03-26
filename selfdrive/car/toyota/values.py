@@ -228,7 +228,7 @@ FW_QUERY_CONFIG = FwQueryConfig(
     # FIXME: On some models, abs can sometimes be missing
     Ecu.abs: [CAR.RAV4, CAR.COROLLA, CAR.HIGHLANDER, CAR.SIENNA, CAR.LEXUS_IS],
     # On some models, the engine can show on two different addresses
-    Ecu.engine: [CAR.CAMRY, CAR.COROLLA_TSS2, CAR.CHR, CAR.LEXUS_IS],
+    Ecu.engine: [CAR.CAMRY, CAR.COROLLA_TSS2, CAR.CHR, CAR.LEXUS_IS, CAR.LEXUS_RC, CAR.LEXUS_RC_2017],
   }
 )
 
@@ -1733,6 +1733,26 @@ FW_VERSIONS = {
       b'8646F2402200\x00\x00\x00\x00',
     ],
   },
+  CAR.LEXUS_RC_2017: {
+    (Ecu.engine, 0x7e0, None): [
+      b'\x0232450000\x00\x00\x00\x00\x00\x00\x00\x0052422000\x00\x00\x00\x00\x00\x00\x00\x00',
+    ],
+    (Ecu.abs, 0x7b0, None): [
+      b'F152624110\x00\x00\x00\x00\x00\x00',
+    ],
+    (Ecu.dsu, 0x791, None): [
+      b'8815124032\x00\x00\x00\x00\x00\x00',
+    ],
+    (Ecu.eps, 0x7a1, None): [
+      b'8965B24081\x00\x00\x00\x00\x00\x00',
+    ],
+    (Ecu.fwdRadar, 0x750, 0xf): [
+      b'8821F4702300\x00\x00\x00\x00',
+    ],
+    (Ecu.fwdCamera, 0x750, 0x6d): [
+      b'8646F2402200\x00\x00\x00\x00',
+    ],
+  },
   CAR.LEXUS_RX: {
     (Ecu.engine, 0x700, None): [
       b'\x01896630E36200\x00\x00\x00\x00',
@@ -1983,6 +2003,7 @@ DBC = {
   CAR.PRIUS_V: dbc_dict('toyota_new_mc_pt_generated', 'toyota_adas'),
   CAR.COROLLA: dbc_dict('toyota_new_mc_pt_generated', 'toyota_adas'),
   CAR.LEXUS_RC: dbc_dict('toyota_tnga_k_pt_generated', 'toyota_adas'),
+  CAR.LEXUS_RC_2017: dbc_dict('toyota_tnga_k_pt_generated', None),
   CAR.LEXUS_RX: dbc_dict('toyota_tnga_k_pt_generated', 'toyota_adas'),
   CAR.LEXUS_RXH: dbc_dict('toyota_tnga_k_pt_generated', 'toyota_adas'),
   CAR.LEXUS_RX_TSS2: dbc_dict('toyota_nodsu_pt_generated', 'toyota_tss2_adas'),
@@ -2025,7 +2046,7 @@ DBC = {
 }
 
 # These cars have non-standard EPS torque scale factors. All others are 73
-EPS_SCALE = defaultdict(lambda: 73, {CAR.PRIUS: 66, CAR.COROLLA: 88, CAR.LEXUS_IS: 77, CAR.LEXUS_RC: 77, CAR.LEXUS_CTH: 100, CAR.PRIUS_V: 100})
+EPS_SCALE = defaultdict(lambda: 73, {CAR.PRIUS: 66, CAR.COROLLA: 88, CAR.LEXUS_IS: 77, CAR.LEXUS_RC: 77, CAR.LEXUS_RC_2017: 77, CAR.LEXUS_CTH: 100, CAR.PRIUS_V: 100})
 
 # Toyota/Lexus Safety Sense 2.0 and 2.5
 TSS2_CAR = {CAR.RAV4_TSS2, CAR.RAV4_TSS2_2022, CAR.COROLLA_TSS2, CAR.COROLLAH_TSS2, CAR.LEXUS_ES_TSS2, CAR.LEXUS_ESH_TSS2, CAR.RAV4H_TSS2, CAR.RAV4H_TSS2_2022,
@@ -2035,7 +2056,7 @@ TSS2_CAR = {CAR.RAV4_TSS2, CAR.RAV4_TSS2_2022, CAR.COROLLA_TSS2, CAR.COROLLAH_TS
 NO_DSU_CAR = TSS2_CAR | {CAR.CHR, CAR.CHRH, CAR.CAMRY, CAR.CAMRYH}
 
 # the DSU uses the AEB message for longitudinal on these cars
-UNSUPPORTED_DSU_CAR = {CAR.LEXUS_IS, CAR.LEXUS_RC}
+UNSUPPORTED_DSU_CAR = {CAR.LEXUS_IS, CAR.LEXUS_RC, CAR.LEXUS_RC_2017}
 
 # these cars have a radar which sends ACC messages instead of the camera
 RADAR_ACC_CAR = {CAR.RAV4H_TSS2_2022, CAR.RAV4_TSS2_2022}
